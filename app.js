@@ -5,12 +5,20 @@ const exphbs = require('express-handlebars');
 
 const app = express();
 
+//Handlebars
+app.engine('handlebars', exphbs({defaultLayout:'main'}));
+app.set('view engine', 'handlebars');
+
 //Body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 
+//Routes
 
+app.get('/', (req, res) => {
+  res.render('index');
+});
 
 
 //Starting server
