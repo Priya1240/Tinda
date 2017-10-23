@@ -1,0 +1,28 @@
+{
+  "name": "tinda",
+  "version": "1.0.0",
+  "description": "Match dating depending on kamasutra positions",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Priya1240/Tinda.git"
+  },
+  "keywords": [
+    "dating"
+  ],
+  "author": "kamasutra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Priya1240/Tinda/issues"
+  },
+  "homepage": "https://github.com/Priya1240/Tinda#readme"
+}
