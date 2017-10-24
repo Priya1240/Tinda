@@ -1,6 +1,11 @@
 node_modules
 .DS_Store
+
+#ignore all safe copies from text-editor
 *~
+
+#ignore .tern-port
+*.tern*
 
 
 # Logs
