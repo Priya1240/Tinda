@@ -50,6 +50,7 @@ jspm_packages/
 typings/
 
 # environment variables holder
+*.env
 .env
 
 # Optional npm cache directory
