@@ -37,6 +37,23 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
+//Set mongoose to leverage built in JavaScript ES6 Promises
+mongoose.Promise = Promise;
+
+//Database Config with mongoose
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect('mongodb://localhost/tinda');
+}
+
+let db = mongoose.connection;
+
+//Handle Database(mongoose) errors.
+db.on('error', (error) => console.log('Mongoose Error:', error));
+
+//If successfully connected to db through mongoose say so!
+db.on('open', () => console.log('Mongoose connection has been successful!'));
 
 //Starting server
 const port = process.env.PORT || 8080;
