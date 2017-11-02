@@ -10,6 +10,9 @@ const express      = require('express'),
 const mongoose   = require('mongoose'),
       MongoStore = require('connect-mongo')(session);
 
+//Logger Morgan
+app.use(logger('dev'));
+
 //Handlebars
 app.engine('handlebars', exphbs({defaultLayout:'main'}));
 app.set('view engine', 'handlebars');
