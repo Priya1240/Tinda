@@ -7,6 +7,8 @@ node_modules
 #ignore .tern-port
 *.tern*
 
+#ignore safe-copies
+#*#
 
 # Logs
 logs
@@ -50,6 +52,7 @@ jspm_packages/
 typings/
 
 # environment variables holder
+*.env
 .env
 
 # Optional npm cache directory
