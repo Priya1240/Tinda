@@ -30,6 +30,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // populates req.cookies with any cookies that came along with the request
 app.use(cookieParser());
 
+// import environmental variables from our variables.env file
+require('dotenv').config({ path: 'variables.env' });
 
 
 //Routes
@@ -44,13 +46,15 @@ mongoose.Promise = Promise;
 if (process.env.MONGODB_URI) {
   mongoose.connect(process.env.MONGODB_URI);
 } else {
-  mongoose.connect('mongodb://localhost/tinda');
+  mongoose.connect(process.env.DATABASE);
 }
 
 let db = mongoose.connection;
 
 //Handle Database(mongoose) errors.
 db.on('error', (error) => console.log('Mongoose Error:', error));
+db.on('error', (err) => console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`));
+
 
 //If successfully connected to db through mongoose say so!
 db.on('open', () => console.log('Mongoose connection has been successful!'));
