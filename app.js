@@ -57,7 +57,7 @@ db.on('error', (err) => console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 �
 
 
 //If successfully connected to db through mongoose say so!
-db.on('open', () => console.log('Mongoose connection has been successful!'));
+db.on('open', () => console.log('Mongoose connection has been successful!✅ ✅ ✅'));
 
 //Starting server
 const port = process.env.PORT || 8080;
