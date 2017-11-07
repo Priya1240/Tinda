@@ -6,10 +6,14 @@ const express      = require('express'),
       cookieParser = require('cookie-parser'),
       bodyParser   = require('body-parser'),
       exphbs       = require('express-handlebars'),
+      routes       = require('./services/index'),
       app          = express();
 
 const mongoose   = require('mongoose'),
       MongoStore = require('connect-mongo')(session);
+//bring in our models
+require('./services/User');
+
 
 //Logger Morgan
 app.use(logger('dev'));
@@ -62,6 +66,11 @@ db.on('error', (err) => console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 �
 
 //If successfully connected to db through mongoose say so!
 db.on('open', () => console.log('Mongoose connection has been successful!✅ ✅ ✅'));
+
+//After connected and middleware use routes from controller
+app.use('/', routes);
+
+
 
 //Starting server
 const port = process.env.PORT || 8080;
