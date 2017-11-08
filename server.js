@@ -6,14 +6,11 @@ const express      = require('express'),
       cookieParser = require('cookie-parser'),
       bodyParser   = require('body-parser'),
       exphbs       = require('express-handlebars'),
-      routes       = require('./services/index.js'),
+      routes       = require('./services/controller.js'),
       app          = express();
 
 const mongoose   = require('mongoose'),
       MongoStore = require('connect-mongo')(session);
-//bring in our models
-require('./services/User');
-
 
 //Logger Morgan
 app.use(logger('dev'));
@@ -36,8 +33,12 @@ app.use(cookieParser());
 
 // import environmental variables from our variables.env file
 require('dotenv').config({ path: 'variables.env' });
+app.use('/', routes);
 
-
+// //Routes
+// app.get('/', (req, res) => {
+//   res.render('index');
+// });
 
 //Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
@@ -62,9 +63,6 @@ db.on('error', (err) => console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 �
 
 //If successfully connected to db through mongoose say so!
 db.on('open', () => console.log('Mongoose connection has been successful!✅ ✅ ✅'));
-
-//After connected and middleware use routes from controller
-app.use('/', routes);
 
 
 
