@@ -12,6 +12,9 @@ const express      = require('express'),
 const mongoose   = require('mongoose'),
       MongoStore = require('connect-mongo')(session);
 
+// Serve static content for the app from the "public" directory in the application directory.
+ app.use(express.static(process.cwd() + "/public"));
+
 //Logger Morgan
 app.use(logger('dev'));
 
@@ -33,7 +36,7 @@ app.use(cookieParser());
 
 // import environmental variables from our variables.env file
 require('dotenv').config({ path: 'variables.env' });
-app.use('/', routes);
+
 
 // //Routes
 // app.get('/', (req, res) => {
@@ -64,7 +67,8 @@ db.on('error', (err) => console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 �
 //If successfully connected to db through mongoose say so!
 db.on('open', () => console.log('Mongoose connection has been successful!✅ ✅ ✅'));
 
-
+//use routes
+app.use('/', routes);
 
 //Starting server
 const port = process.env.PORT || 8080;
