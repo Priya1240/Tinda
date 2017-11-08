@@ -9,7 +9,7 @@ const User = require('./User');
 // ROUTES //
 module.exports = (app) => {
 
- 
+
 
  app.get('/', (request,response)=>{
    console.log('I am here!');
@@ -33,6 +33,6 @@ module.exports = (app) => {
   //   ).exec( (err) =>{
   //     err ? console.log(err) : console.log('SAVED!!');
   //   });
-  //})
+  // })
   
 }
