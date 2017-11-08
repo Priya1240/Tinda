@@ -10,11 +10,10 @@ const User = require('./User');
 module.exports = (app) => {
 
 
-
- app.get('/', (request,response)=>{
-   console.log('I am here!');
- response.send(__dirname + '/public/index.html');
- })
+//route
+app.get('/',(req,res)=>{
+  res.render('index');
+})
 
   // app.get('/api/', (request,response)=>{
   //   User.find({})
