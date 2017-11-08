@@ -6,7 +6,7 @@ const express      = require('express'),
       cookieParser = require('cookie-parser'),
       bodyParser   = require('body-parser'),
       exphbs       = require('express-handlebars'),
-      routes       = require('./services/index'),
+      routes       = require('./services/index.js'),
       app          = express();
 
 const mongoose   = require('mongoose'),
@@ -38,10 +38,6 @@ app.use(cookieParser());
 require('dotenv').config({ path: 'variables.env' });
 
 
-//Routes
-app.get('/', (req, res) => {
-  res.render('index');
-});
 
 //Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
