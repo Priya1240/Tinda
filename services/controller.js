@@ -11,8 +11,23 @@ const User = require('./User');
 
  router.get('/', (req,res)=>{
    res.render('index');
-  })
+   
+ })
 
+router.post('/register', (req, res) => {
+  console.log("hit the post route");
+  res.redirect('/');
   
+})
 
 module.exports=router;
+
+
+
+
+
+
+
+
+
+
